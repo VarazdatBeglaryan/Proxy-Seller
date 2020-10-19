@@ -282,6 +282,8 @@ btn.forEach(e => {
             document.getElementById('sendWarning').textContent = `Send exactly ${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC to the specified address`
             document.getElementById('amount').textContent = `${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC`
         }else {
+            document.getElementById('username').textContent = ''
+            if(localStorage.getItem('user'))localStorage.removeItem('user')
             document.getElementsByClassName('content')[0].style.display = 'none'
             document.getElementById('login_page').style.display = 'block'
             document.getElementById('register_page').style.display = 'none'
