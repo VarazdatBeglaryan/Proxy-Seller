@@ -59,8 +59,9 @@
     padding-top: 25px;
 }
 
-select, select option {
+select, option {
     outline: none;
+    background-color: white;
 }
 
 
@@ -188,6 +189,8 @@ select#xyz {
 #login {
     display: inline-block;
 }
+
+
 
 .modal {
     display: none; /* Hidden by default */
