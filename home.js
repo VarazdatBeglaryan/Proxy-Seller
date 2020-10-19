@@ -8,7 +8,7 @@ let currentUser = {}
 
 if(JSON.parse(localStorage.getItem('user'))){
     document.getElementById('login').textContent = 'Logout'
-    document.getElementById('username').textContent = JSON.parse(localStorage.getItem('user')).email
+    document.getElementById('username').textContent = JSON.parse(localStorage.getItem('user')).registerUsername
 }
 
 var firebaseConfig = {
@@ -129,7 +129,8 @@ document.getElementsByClassName('logo_title')[0].addEventListener('click', () =>
     document.getElementById('loginPassword').value = ''
     document.getElementById('registerEmail').value = ''
     document.getElementById('registerPassword').value = ''
-    
+    document.getElementById('registerPasswordConfirm').value = ''    
+    document.getElementById('registerUsername').value = ''
 })
 
 document.getElementById('login').addEventListener('click', () => {
@@ -161,43 +162,59 @@ document.getElementsByClassName('registration')[0].addEventListener('click', () 
     document.getElementById('register_page').style.display = 'block'
     document.getElementById('registerEmail').value = ''
     document.getElementById('registerPassword').value = ''
+    document.getElementById('registerPasswordConfirm').value = ''
+    document.getElementById('registerUsername').value = ''
     document.getElementById('registerEmail').style.border = '1px solid #6C63FF'
     document.getElementById('registerPassword').style.border = '1px solid #6C63FF'
+    document.getElementById('registerPasswordConfirm').style.border = '1px solid #6C63FF'
+    document.getElementById('registerUsername').style.border = '1px solid #6C63FF'
 })
 
 document.getElementById('registerAccount').addEventListener('click', () => {
      email =  document.getElementById('registerEmail').value
     let password = document.getElementById('registerPassword').value
+    let passwordConfirm = document.getElementById('registerPasswordConfirm').value
+    let registerUsername = document.getElementById('registerUsername').value
     document.getElementById('registerEmail').style.border = '1px solid #6C63FF'
     document.getElementById('registerPassword').style.border = '1px solid #6C63FF'
+    document.getElementById('registerPasswordConfirm').style.border = '1px solid #6C63FF'
+    document.getElementById('registerUsername').style.border = '1px solid #6C63FF'
 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    if( re.test(email.toLowerCase())){
-        if(password.length > 4) {
-            let a = usersData.every(user => {
-                return user.email !== email
-            })
-        
-            if(a){
-                firebase
-                    .firestore()
-                    .collection('users')
-                    .add(
-                    {
-                        email,
-                        password
-                        
-                    })
-                    fetchData()
-                localStorage.setItem('user', JSON.stringify({email,password}));
-                currentUser = {email,password}
-                document.getElementById('register_page').style.display = 'none'
-                document.getElementsByClassName('content')[0].style.display = 'block'
-                document.getElementById('login').textContent = 'Logout'
-                document.getElementById('username').textContent = email
+       if(document.getElementById('registerUsername').value.length > 3 )
+        {
+            if(password.length > 4 && passwordConfirm === password) {
+                let a = usersData.every(user => {
+                    return user.email !== email
+                })
+            
+                if(a){
+                    firebase
+                        .firestore()
+                        .collection('users')
+                        .add(
+                        {
+                            email,
+                            password,
+                            username: registerUsername,
+                            
+                        })
+                        fetchData()
+                    localStorage.setItem('user', JSON.stringify({email,password,username: registerUsername}));
+                    currentUser = {email,password}
+                    document.getElementById('register_page').style.display = 'none'
+                    document.getElementsByClassName('content')[0].style.display = 'block'
+                    document.getElementById('login').textContent = 'Logout'
+                    document.getElementById('username').textContent = registerUsername
+                }
+                   
+            } else {
+                document.getElementById('registerPassword').style.border = '1px solid red'
+                document.getElementById('registerPasswordConfirm').style.border = '1px solid red'
             }
-               
-        } else document.getElementById('registerPassword').style.border = '1px solid red'
+        }else  document.getElementById('registerUsername').style.border = '1px solid red'
+        
    }else document.getElementById('registerEmail').style.border = '1px solid red'
 })
 
