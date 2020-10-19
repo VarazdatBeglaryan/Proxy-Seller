@@ -153,7 +153,7 @@
                         </label>
                     </div>
                     <textarea placeholder="Your message...." name="message" id="message" required></textarea>
-                    <input class="form__input" type="submit"></input>
+                    <button class="form__input" type="submit">Submit</button>
                 </form>
             </section>
         </div>
@@ -203,7 +203,17 @@
 
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
+            <span class="close">&times;</span>
+            <div>Paymant method:
+          <select id='modalSelect'>
+              <option value='bitcoin'>Bitcoin</option>
+              <option value='visa'>Visa</option>
+          </select>
+        </div>
+        <div style="display: none;" id='visaContent'>
+            Sory Visa payment is currently unavailable
+        </div>
+        <div id='bitcoinContent'>
           <h3>Order <span id="oriderInfo"></span> on Proxy Server Service</h3>
           <span id='btc'></span>
           <p>After confirm IPs will be send to your email</p>
@@ -215,6 +225,7 @@
           <hr>
           <div id='img'><img src="Qr.jpg"> </div>
           <button id='done'>DONE</button>
+        </div>
         </div>
       
       </div>

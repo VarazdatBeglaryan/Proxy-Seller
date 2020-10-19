@@ -8,7 +8,7 @@ let currentUser = {}
 
 if(JSON.parse(localStorage.getItem('user'))){
     document.getElementById('login').textContent = 'Logout'
-    document.getElementById('username').textContent = JSON.parse(localStorage.getItem('user')).registerUsername
+    document.getElementById('username').textContent = JSON.parse(localStorage.getItem('user')).username
 }
 
 var firebaseConfig = {
@@ -83,7 +83,7 @@ function qunatityPrice(e) {
 document.getElementById('proxyType').addEventListener('change', function(){
     switch (this.value) {
         case 'Instagram':
-            price = 2.13
+            price = 1.99
             break;
         case 'Google':
             price = 2.5
@@ -223,15 +223,18 @@ document.getElementById('registerAccount').addEventListener('click', () => {
 document.getElementById('loginAccount').addEventListener('click', () => {
     email =  document.getElementById('loginEmail').value
     let password = document.getElementById('loginPassword').value
+    let userName
     document.getElementById('loginEmail').style.border = '1px solid #6C63FF'
     document.getElementById('loginPassword').style.border = '1px solid #6C63FF'
     currentUser = {}
     let a = usersData.some(user => {
+        userName = user.username
         return user.email === email && user.password === password
     })
+    
     if(a){
         fetchData()
-        localStorage.setItem('user', JSON.stringify({email,password}));
+        localStorage.setItem('user', JSON.stringify({email,password,username:userName}));
         document.getElementById('loginEmail').style.border = '1px solid #6C63FF'
         document.getElementById('loginPassword').style.border = '1px solid #6C63FF'
         document.getElementById('loginEmail').value = ''
@@ -239,7 +242,7 @@ document.getElementById('loginAccount').addEventListener('click', () => {
         document.getElementById('login').textContent = 'Logout'
         document.getElementsByClassName('content')[0].style.display = 'block'
         document.getElementById('login_page').style.display = 'none'
-        document.getElementById('username').textContent = email
+        document.getElementById('username').textContent = userName
     }else {
         document.getElementById('loginEmail').style.border = '1px solid red'
         document.getElementById('loginPassword').style.border = '1px solid red'
@@ -276,8 +279,8 @@ btn.forEach(e => {
             quantity = e.id.indexOf('One') !== -1 ?1:e.id.indexOf('Two') !== -1?10:e.id.indexOf('Three')!== -1?25:e.id.indexOf('Four')!== -1?50:quantity;
             document.getElementById('oriderInfo').textContent = `${email?'('+email+')':''}`
             document.getElementById('btc').textContent = `${(time * price * +quantity * discount * 0.000087*1000).toFixed(2)} mBTC`
-            document.getElementById('sendWarning').textContent = `Send exactly ${(time * price * +quantity * discount * 0.000087*1000)} BTC to the specified address`
-            document.getElementById('amount').textContent = `${(time * price * +quantity * discount * 0.000087*1000).toFixed(4)} BTC`
+            document.getElementById('sendWarning').textContent = `Send exactly ${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC to the specified address`
+            document.getElementById('amount').textContent = `${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC`
         }else {
             document.getElementsByClassName('content')[0].style.display = 'none'
             document.getElementById('login_page').style.display = 'block'
@@ -357,3 +360,13 @@ function sendEmail(email, name, message) {
             }
         )
 }
+
+document.getElementById('modalSelect').addEventListener('change', function() {
+    if(this.value === 'visa'){
+        document.getElementById('bitcoinContent').style.display = 'none'
+        document.getElementById('visaContent').style.display = 'block'
+    }else {
+        document.getElementById('bitcoinContent').style.display = 'block'
+        document.getElementById('visaContent').style.display = 'none'
+    }
+})
