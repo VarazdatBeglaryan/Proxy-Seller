@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PSS</title>
+    <link rel="stylesheet" type="text/css" href='home.css'>
+    <link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'>
+    <link rel="icon" href='download.png'>
+    <meta name="Description" content="BEst proxy seller.">
+</head>
+<body>
+    <div  class="container">
+        <div class="navbar">
+            <div class="logo">
+                <div class="logo_title">Proxy Server Service</div>
+            </div>
+            <div>
+                <div id="username"></div>
+                <div id='login' class="contact">
+                    Login
+                </div>
+            </div>
+        </div>
+        <div   class="content">
+            <div class="top">
+                <div class="title">
+                    Proxy for 
+                    <select id='proxyType' style="border:none;outline: none;">
+                        <option value="Google">Google</option>
+                        <option value="Instagram">Instagram</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Youtube">Youtube</option>
+                        <option value="Periscope">Periscope</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Telegram">Telegram</option>
+                        <option value="Tinder">Tinder</option>
+                        <option value="TikTok">TikTok</option>
+                    </select>
+                </div>
+                <div class="description">
+                    Choose a package or enter your quantity
+                </div>
+            </div>
+            <div class="carts_container">
+                <div class='cart'>
+                    <span class="title_cart">
+                        Your Quantity
+                    </span>
+                    <input type='number' placeholder="Enter quantity of pcs"  id="quantityInput" />
+                    <span id='your_quantity' class="cart_description">
+                        <select class="timeSelect" id="Zero">
+                            <option>1 month</option>
+                            <option>6 months</option>
+                            <option>12 months</option>
+                        </select>
+                    </span>
+                    <div id="priceZero"></div>
+                    <button id="btnZero" class="cart_button">BUY</button>
+                </div>
+                <div class='cart'>
+                    <span class="title_cart">
+                        1 pcs
+                    </span>
+                    <span class="cart_description">
+                        <div>- up to 100 Mbit/s</div>
+                        <div>- Http/Https/Socks5</div>
+                        <div>- Anonymous</div>
+                        <div>- &#8734; Traffic</div>
+                        <div>- 24/7 Tech Support</div>
+                        <select class="timeSelect" id="One">
+                            <option>1 month</option>
+                            <option>6 months</option>
+                            <option>12 months</option>
+                        </select>
+                    </span>
+                    <div id="priceOne" class='cart_price'></div>
+                    <button id="btnOne" class="cart_button">BUY</button>
+                </div>
+                <div class='cart'>
+                    <span class="title_cart">
+                        10 pcs
+                    </span>
+                    <span class="cart_description">
+                        <div>- up to 100 Mbit/s</div>
+                        <div>- Http/Https/Socks5</div>
+                        <div>- Anonymous</div>
+                        <div>- &#8734; Traffic</div>
+                        <div>- 24/7 Tech Support</div>
+                        <select class="timeSelect" id="Two">
+                            <option>1 month</option>
+                            <option>6 months</option>
+                            <option>12 months</option>
+                        </select>
+                    </span>
+                    <div id="priceTwo" class='cart_price'></div>
+                    <button id="btnTwo" class="cart_button">BUY</button>
+                </div>
+                <div class='cart'>
+                    <span class="title_cart">
+                        25 pcs
+                    </span>
+                    <span class="cart_description">
+                        <div>- up to 100 Mbit/s</div>
+                        <div>- Http/Https/Socks5</div>
+                        <div>- Anonymous</div>
+                        <div>- &#8734; Traffic</div>
+                        <div>- 24/7 Tech Support</div>
+                        <select class="timeSelect" id="Three">
+                            <option>1 month</option>
+                            <option>6 months</option>
+                            <option>12 months</option>
+                        </select>
+                    </span>
+                    <div id="priceThree" class='cart_price'></div>
+                    <button id="btnThree" class="cart_button">BUY</button>
+                </div>
+                <div class='cart'>
+                    <span class="title_cart">
+                        50 pcs
+                    </span>
+                    <span class="cart_description">
+                        <div>- up to 100 Mbit/s</div>
+                        <div>- Http/Https/Socks5</div>
+                        <div>- Anonymous</div>
+                        <div>- &#8734; Traffic</div>
+                        <div>- 24/7 Tech Support</div>
+                        <select class="timeSelect" id="Four">
+                            <option>1 month</option>
+                            <option>6 months</option>
+                            <option>12 months</option>
+                        </select>   
+                    </span>
+                    <div id="priceFour" class='cart_price'></div>
+                    <button id="btnFour" class="cart_button">BUY</button>
+                </div>
+            </div>
+
+
+            <section class="contact sections" id="contactId">
+                <h1>Contact Us</h1>
+                <form onsubmit="return form(event)" class="form">
+                    <div class="form__name">
+                        <input id="name" type="text" name="name" autocomplete="off" required>
+                        <label for="name" class="label-name">
+                            <div class="content-name">Your Name</div>
+                        </label>
+                    </div>
+                    <div class="form__email">
+                        <input id="email" type="text" name="email" autocomplete="off" required>
+                        <label for="email" class="label-name">
+                            <div class="content-name">Your Email</div>
+                        </label>
+                    </div>
+                    <textarea placeholder="Your message...." name="message" id="message" required></textarea>
+                    <input class="form__input" type="submit"></input>
+                </form>
+            </section>
+        </div>
+
+
+        <div style='display: none;' id='login_page' class="login_form">
+            <h1>Welcome back.<br>
+                We are glad to see you again!</h1>
+                <hr>
+            <div class="login_input email">
+                <div>Email</div>
+                <input id='loginEmail' placeholder="Enter your email..." type="text">
+            </div>
+            <div class="login_input password">
+                <div>Password</div>
+                <input id='loginPassword' placeholder="Enter your password..." type="password">
+            </div>
+            <div id='loginAccount' class="authorization login_button">Authorization</div>
+            <div class="registration login_button">Registration</div>
+        </div>
+
+
+        <div style='display: none;'  id='register_page' class="login_form">
+            <h1>Please register</h1>
+                <hr>
+            <div class="login_input email">
+                <div>Email</div>
+                <input id='registerEmail' placeholder="Enter your email..." type="text">
+            </div>
+            <div class="login_input password">
+                <div>Password</div>
+                <input id='registerPassword' placeholder="Create a password..." type="password">
+            </div>
+            <div class="login_button" id='registerAccount'>Registration</div>
+            <div class="login_button" id='toLogin'>Login</div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3>Order <span id="oriderInfo"></span> on Proxy Server Service</h3>
+          <span id='btc'></span>
+          <p>After confirm IPs will be send to your email</p>
+          <div id='sendWarning'></div>
+          <hr>
+          <div class="address"><span class='addresssmall'>Adress:</span><span>bc1q0803tsjr5uh5nu9su85rf55263uukd9zkmqqc2</span></div>
+          <hr>
+          <div class="address"><span class='addresssmall'>Amount:</span><span id='amount'></span></div>
+          <hr>
+          <div id='img'><img src="Qr.jpg"> </div>
+          <button id='done'>DONE</button>
+        </div>
+      
+      </div>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+   <script src="home.js"></script>
+</body>
+</html>
