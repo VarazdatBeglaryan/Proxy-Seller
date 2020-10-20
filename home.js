@@ -297,10 +297,10 @@ btn.forEach(e => {
               }
               let email = JSON.parse(localStorage.getItem('user')).email  
             quantity = e.id.indexOf('One') !== -1 ?1:e.id.indexOf('Two') !== -1?10:e.id.indexOf('Three')!== -1?25:e.id.indexOf('Four')!== -1?50:quantity;
-            document.getElementById('oriderInfo').textContent = `${email?'('+email+')':''}`
-            document.getElementById('btc').textContent = `${(time * price * +quantity * discount * 0.000087*1000).toFixed(2)} mBTC`
-            document.getElementById('sendWarning').textContent = `Send exactly ${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC to the specified address`
-            document.getElementById('amount').textContent = `${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC`
+            document.getElementById('oriderInfo').textContent = `${email?email:''}`
+            document.getElementById('btc').textContent = `${(time * price * +quantity * discount * 0.000084*1000).toFixed(2)} mBTC`
+            document.getElementById('sendWarning').textContent = `Send exactly ${(time * price * +quantity * discount * 0.000084).toFixed(6)} BTC to the specified address`
+            document.getElementById('amount').textContent = `${(time * price * +quantity * discount * 0.000084).toFixed(6)} BTC`
         }else {
             document.getElementById('username').innerHTML = ''
             if(localStorage.getItem('user'))localStorage.removeItem('user')
@@ -332,7 +332,7 @@ document.getElementById('done').addEventListener('click', () => {
         .add({
             quantity,
             time: time+' months',
-            price: `${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC`,
+            price: `${(time * price * +quantity * discount * 0.000084).toFixed(6)} BTC`,
             email: JSON.parse(localStorage.getItem('user')).email          
         })
                 
