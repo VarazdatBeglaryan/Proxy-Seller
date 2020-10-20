@@ -295,6 +295,7 @@ btn.forEach(e => {
                  time = 6
                   discount = 0.8
               }
+              let email = JSON.parse(localStorage.getItem('user')).email  
             quantity = e.id.indexOf('One') !== -1 ?1:e.id.indexOf('Two') !== -1?10:e.id.indexOf('Three')!== -1?25:e.id.indexOf('Four')!== -1?50:quantity;
             document.getElementById('oriderInfo').textContent = `${email?'('+email+')':''}`
             document.getElementById('btc').textContent = `${(time * price * +quantity * discount * 0.000087*1000).toFixed(2)} mBTC`
