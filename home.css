@@ -1,6 +1,6 @@
 .navbar{
-    background-color: #6C63FF;
-    box-shadow: 0px 3px 10px rgba(108, 99, 255, 1);
+    background-color: #35be70;
+    box-shadow: 0px 3px 10px #35be70;
     width: 100%;
     height: 50px;
     color: white;
@@ -47,27 +47,37 @@
 
 .cart {
     flex-direction: column;
-    box-shadow: 0px 11px 20px 1px  grey;
     border-radius: 15px;
     height: 300px;
     width: 200px;
-    background-color: #8a84fa;
+    background-color:#ebf9f1;
     z-index: 1;
     display: flex;
     justify-items: center;
-    color: white;
+    color: black;
     padding-top: 25px;
+    transition: .5s all; 
 }
 
 select, option {
     outline: none;
     background-color: white;
+    
+}
+.timeSelect{
+    border: 1px solid #bcc0ca;
+transition: all 0.5s;
+}
+.timeSelect:hover{
+    border: 1px solid #35be70;
+}
+#quantityInput {
+    border: 1px solid #35be70;
+    padding: 6px;
 }
 
-
-
 .cart:hover {
-    transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    box-shadow: 0px 11px 20px 1px  grey;
 }
 .title_cart{
     font-size: 20px;
@@ -84,11 +94,19 @@ select, option {
 }
 
 .cart_description select {
+    font-family: monospace;
+    padding-left: 10px;
+    font-size: 16px;
     border: none;
     margin-top: 40px;
     width: 153px;
     height: 25px;
 }
+
+select option:hover {
+    outline: none
+}   
+
 #proxyType option{
     font-size: 20px;
 }
@@ -102,7 +120,8 @@ select, option {
     text-align: center;
     font-size: 20px;
     font-family: fantasy;
-    margin-top: 20px;
+    margin-top: 6px;
+    font-family: monospace;
 }
 
 section h1 {
@@ -114,17 +133,25 @@ section h1 {
     border: none;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
-    background-color: white;
+    background-color: #35be70;
     outline: none;
+    color: white;
+    margin-top: 8px;  
+    
+    font-size: 18px;
+    font-family: monospace;
+  
 }
 
 .cart_button:hover {
-    color: #6C63FF;
+    cursor: pointer;
+    color: white;
+    background-color:  #2da862;
 }
 
 .cart_price{
-    font-family: fantasy;
-    margin-top: 15px;
+    font-family: monospace;
+    margin-top: 9px;
     font-size: 20px;
     text-align: center;
 }
@@ -162,12 +189,12 @@ select#xyz {
     height: 26px;
     border-radius: 8px;
     border: none;
-    border: 1px solid #6C63FF;
+    border: 1px solid #35be70;
     outline: none;
 }
 
 .login_button {
-    border: 1px solid #6C63FF;
+    border: 1px solid #35be70;
     display: inline-block;
     width: 150px;
     margin-top: 30px;
@@ -178,7 +205,7 @@ select#xyz {
 
 .login_button:hover {
     color: white;
-    background-color: #6C63FF;
+    background-color: #35be70;
 }
 
 #username{
@@ -346,7 +373,7 @@ img {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-bottom: 3px solid #6C63FF;
+    border-bottom: 3px solid #35be70;
     left: 0;
     bottom: -1px;
     transform: translateX(-100%);
@@ -371,7 +398,7 @@ img {
 .form__email input:valid+label .content-name {
     transform: translateY(-150%);
     font-size: 14px;
-    color: #6C63FF;
+    color: #35be70;
 }
 
 .form__name input:focus+.label-name:after,
@@ -395,7 +422,7 @@ img {
 
 #message:focus,
 #message:valid {
-    border: 3px solid #6C63FF;
+    border: 3px solid#35be70;
 }
 
 .form__input {
@@ -403,9 +430,9 @@ img {
     right: 22.5vw;
     bottom: 0;
     margin-top: 4vh;
-    border: 1px solid #6C63FF;
+    border: 1px solid#35be70;
     padding: 1vmax 2.5vmax;
-    color: #6C63FF;
+    color:#35be70;
     background: transparent;
     display: flex;
     justify-content: space-around;
@@ -415,7 +442,7 @@ img {
 }
 
 .form__input:hover {
-    box-shadow: inset 0px 0px 0px 30px rgba(108, 99, 255, 1);
+    box-shadow: inset 0px 0px 0px 30px #35be70;
     cursor: pointer;
     color: white;
     fill: white;

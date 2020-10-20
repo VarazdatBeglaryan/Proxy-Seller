@@ -8,7 +8,15 @@ let currentUser = {}
 
 if(JSON.parse(localStorage.getItem('user'))){
     document.getElementById('login').textContent = 'Logout'
-    document.getElementById('username').textContent = JSON.parse(localStorage.getItem('user')).username
+    document.getElementById('username').innerHTML = `<svg style="width: 15px;    margin-right: 10px;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+       <path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148
+           C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962
+           c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216
+           h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40
+           c59.551,0,108,48.448,108,108S315.551,256,256,256z"/>
+</svg>` +JSON.parse(localStorage.getItem('user')).username 
+    
 }
 
 var firebaseConfig = {
@@ -105,10 +113,7 @@ document.getElementById('proxyType').addEventListener('change', function(){
             break;
         case 'Twitter':
             price = 3.24
-            break;
-        case 'Periscope':
-            price = 4,23
-            break;                          
+            break;                         
     }
     discount = 1
     Array.from(document.getElementsByClassName('timeSelect')).forEach(e => {
@@ -138,22 +143,22 @@ document.getElementById('login').addEventListener('click', () => {
     if(localStorage.getItem('user'))localStorage.removeItem('user')
    document.getElementsByClassName('content')[0].style.display = 'none'
    document.getElementById('login_page').style.display = 'block'
-   document.getElementById('loginEmail').style.border = '1px solid #6C63FF'
-    document.getElementById('loginPassword').style.border = '1px solid #6C63FF'
+   document.getElementById('loginEmail').style.border = '1px solid #35be70'
+    document.getElementById('loginPassword').style.border = '1px solid #35be70'
    document.getElementById('register_page').style.display = 'none'
    document.getElementById('loginEmail').value = ''
    document.getElementById('loginPassword').value = ''
-   document.getElementById('username').textContent = ''
+   document.getElementById('username').innerHTML = ''
 })
 
 document.getElementById('toLogin').addEventListener('click', () => {
     document.getElementById('login_page').style.display = 'block'
-    document.getElementById('loginEmail').style.border = '1px solid #6C63FF'
-    document.getElementById('loginPassword').style.border = '1px solid #6C63FF'
+    document.getElementById('loginEmail').style.border = '1px solid #35be70'
+    document.getElementById('loginPassword').style.border = '1px solid #35be70'
     document.getElementById('register_page').style.display = 'none'
     document.getElementById('loginEmail').value = ''
     document.getElementById('loginPassword').value = ''
-    document.getElementById('username').textContent = ''
+    document.getElementById('username').innerHTML = ''
     
 })
 
@@ -164,10 +169,10 @@ document.getElementsByClassName('registration')[0].addEventListener('click', () 
     document.getElementById('registerPassword').value = ''
     document.getElementById('registerPasswordConfirm').value = ''
     document.getElementById('registerUsername').value = ''
-    document.getElementById('registerEmail').style.border = '1px solid #6C63FF'
-    document.getElementById('registerPassword').style.border = '1px solid #6C63FF'
-    document.getElementById('registerPasswordConfirm').style.border = '1px solid #6C63FF'
-    document.getElementById('registerUsername').style.border = '1px solid #6C63FF'
+    document.getElementById('registerEmail').style.border = '1px solid #35be70'
+    document.getElementById('registerPassword').style.border = '1px solid #35be70'
+    document.getElementById('registerPasswordConfirm').style.border = '1px solid #35be70'
+    document.getElementById('registerUsername').style.border = '1px solid #35be70'
 })
 
 document.getElementById('registerAccount').addEventListener('click', () => {
@@ -175,10 +180,10 @@ document.getElementById('registerAccount').addEventListener('click', () => {
     let password = document.getElementById('registerPassword').value
     let passwordConfirm = document.getElementById('registerPasswordConfirm').value
     let registerUsername = document.getElementById('registerUsername').value
-    document.getElementById('registerEmail').style.border = '1px solid #6C63FF'
-    document.getElementById('registerPassword').style.border = '1px solid #6C63FF'
-    document.getElementById('registerPasswordConfirm').style.border = '1px solid #6C63FF'
-    document.getElementById('registerUsername').style.border = '1px solid #6C63FF'
+    document.getElementById('registerEmail').style.border = '1px solid #35be70'
+    document.getElementById('registerPassword').style.border = '1px solid #35be70'
+    document.getElementById('registerPasswordConfirm').style.border = '1px solid #35be70'
+    document.getElementById('registerUsername').style.border = '1px solid #35be70'
 
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
    if( re.test(email.toLowerCase())){
@@ -206,7 +211,14 @@ document.getElementById('registerAccount').addEventListener('click', () => {
                     document.getElementById('register_page').style.display = 'none'
                     document.getElementsByClassName('content')[0].style.display = 'block'
                     document.getElementById('login').textContent = 'Logout'
-                    document.getElementById('username').textContent = registerUsername
+                    document.getElementById('username').innerHTML = `<svg style="width: 15px;    margin-right: 10px;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+                       <path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148
+                           C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962
+                           c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216
+                           h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40
+                           c59.551,0,108,48.448,108,108S315.551,256,256,256z"/>
+                </svg>` +registerUsername
                 }
                    
             } else {
@@ -224,8 +236,8 @@ document.getElementById('loginAccount').addEventListener('click', () => {
     email =  document.getElementById('loginEmail').value
     let password = document.getElementById('loginPassword').value
     let userName
-    document.getElementById('loginEmail').style.border = '1px solid #6C63FF'
-    document.getElementById('loginPassword').style.border = '1px solid #6C63FF'
+    document.getElementById('loginEmail').style.border = '1px solid #35be70'
+    document.getElementById('loginPassword').style.border = '1px solid #35be70'
     currentUser = {}
     let a = usersData.some(user => {
         userName = user.username
@@ -235,14 +247,21 @@ document.getElementById('loginAccount').addEventListener('click', () => {
     if(a){
         fetchData()
         localStorage.setItem('user', JSON.stringify({email,password,username:userName}));
-        document.getElementById('loginEmail').style.border = '1px solid #6C63FF'
-        document.getElementById('loginPassword').style.border = '1px solid #6C63FF'
+        document.getElementById('loginEmail').style.border = '1px solid #35be70'
+        document.getElementById('loginPassword').style.border = '1px solid #35be70'
         document.getElementById('loginEmail').value = ''
         document.getElementById('loginPassword').value = ''
         document.getElementById('login').textContent = 'Logout'
         document.getElementsByClassName('content')[0].style.display = 'block'
         document.getElementById('login_page').style.display = 'none'
-        document.getElementById('username').textContent = userName
+        document.getElementById('username').innerHTML = `<svg style="width: 15px;    margin-right: 10px;" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+           <path d="M437.02,330.98c-27.883-27.882-61.071-48.523-97.281-61.018C378.521,243.251,404,198.548,404,148
+               C404,66.393,337.607,0,256,0S108,66.393,108,148c0,50.548,25.479,95.251,64.262,121.962
+               c-36.21,12.495-69.398,33.136-97.281,61.018C26.629,379.333,0,443.62,0,512h40c0-119.103,96.897-216,216-216s216,96.897,216,216
+               h40C512,443.62,485.371,379.333,437.02,330.98z M256,256c-59.551,0-108-48.448-108-108S196.449,40,256,40
+               c59.551,0,108,48.448,108,108S315.551,256,256,256z"/>
+    </svg>` +userName
     }else {
         document.getElementById('loginEmail').style.border = '1px solid red'
         document.getElementById('loginPassword').style.border = '1px solid red'
@@ -282,7 +301,7 @@ btn.forEach(e => {
             document.getElementById('sendWarning').textContent = `Send exactly ${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC to the specified address`
             document.getElementById('amount').textContent = `${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC`
         }else {
-            document.getElementById('username').textContent = ''
+            document.getElementById('username').innerHTML = ''
             if(localStorage.getItem('user'))localStorage.removeItem('user')
             document.getElementsByClassName('content')[0].style.display = 'none'
             document.getElementById('login_page').style.display = 'block'
