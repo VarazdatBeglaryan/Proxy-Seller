@@ -332,7 +332,7 @@ document.getElementById('done').addEventListener('click', () => {
         .add({
             quantity,
             time: time+' months',
-            price: `${(time * price * +quantity * discount * 0.000087*1000).toFixed(4)} BTC`,
+            price: `${(time * price * +quantity * discount * 0.000087).toFixed(6)} BTC`,
             email: JSON.parse(localStorage.getItem('user')).email          
         })
                 
