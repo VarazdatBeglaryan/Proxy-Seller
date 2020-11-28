@@ -164,11 +164,6 @@ select#xyz {
     border:0px;
     outline:0px;
  }
-
-.logo_title:hover {
-    cursor: pointer
-}
-
 .login_form {
     width: 80%;
     margin: 0 auto;

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Server Service</title>
+    <link rel="stylesheet" type="text/css" href='home.css'>
+    <link rel="stylesheet" type="text/css" href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css'>
+    <link rel="icon" href='FAVPNG_favicon-world-wide-web_18wrGake.png'>
+    <meta property="og:image" content="FAVPNG_favicon-world-wide-web_18wrGake.png">
+    <meta name="Description" content="Best Server Seller.">
+</head>
+<body>
+    <div  class="container">
+        <div class="navbar">
+            <div class="logo">
+                <div class="logo_title"><b><a style="color: white; text-decoration: none;" href="home.html">Proxy</a></b> Server Service</div>
+            </div>
+            <div>
+                
+                <div id="username"></div>
+                <div id='login' class="contact">
+                    Login
+                </div>
+            </div>
+        </div>
+
+
+        <div style='display: none;' id='login_page' class="login_form">
+            <h1>Welcome back.<br>
+                We are glad to see you again!</h1>
+                <hr>
+            <div class="login_input email">
+                <div>Email</div>
+                <input id='loginEmail' placeholder="Enter your email..." type="text">
+            </div>
+            <div class="login_input password">
+                <div>Password</div>
+                <input id='loginPassword' placeholder="Enter your password..." type="password">
+            </div>
+            <div id='loginAccount' class="authorization login_button">Authorization</div>
+            <div class="registration login_button">Registration</div>
+        </div>
+
+
+        <div style='display: none;'  id='register_page' class="login_form">
+            <h1>Please register</h1>
+                <hr>
+            <div class="login_input email">
+                <div>Email</div>
+                <input id='registerEmail' placeholder="Enter your email..." type="text">
+            </div>
+            <div class="login_input">
+                <div>Username</div>
+                <input id='registerUsername' placeholder="Enter your username..." type="text">
+            </div>
+            <div class="login_input password">
+                <div>Password</div>
+                <input id='registerPassword' placeholder="Create a password..." type="password">
+            </div>
+            <div class="login_input password">
+                <div>Confirm password</div>
+                <input id='registerPasswordConfirm' placeholder="Confirm password..." type="password">
+            </div>
+            <div class="login_button" id='registerAccount'>Registration</div>
+            <div class="login_button" id='toLogin'>Login</div>
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div style="margin-top: 20px;">
+                Paymant method:
+          <select id='modalSelect'>
+              <option value='bitcoin'>Bitcoin</option>
+              <option value='visa'>Visa</option>
+          </select>
+        </div>
+        <div style="display: none;" id='visaContent'>
+            Sory Visa payment is currently unavailable
+        </div>
+        <div id='bitcoinContent'>
+          <h3>Order by <span id="oriderInfo"></span> on Proxy Server Service</h3>
+          <span id='btc'></span>
+          <p>After confirm IPs will be send to your email</p>
+          <div id='sendWarning'></div>
+          <hr>
+          <div class="address"><span class='addresssmall'>Adress:</span><span>bc1q0803tsjr5uh5nu9su85rf55263uukd9zkmqqc2</span></div>
+          <hr>
+          <div class="address"><span class='addresssmall'>Amount:</span><span id='amount'></span></div>
+          <hr>
+          <div id='img'><img src="Qr.jpg"> </div>
+          <button style="margin-bottom: 20px;" id='done'>DONE</button>
+        </div>
+        </div>
+      
+      </div>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
+   <script src="home.js"></script>
+</body>
+</html>
