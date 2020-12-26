@@ -43,11 +43,13 @@ var firebaseConfig = {
       })
   }
 
-document.getElementById('quantityInput').addEventListener("input", qunatityPrice);
-document.getElementById('priceOne').innerHTML = (price * 1).toFixed(2) +' USD'
-document.getElementById('priceTwo').innerHTML = (price * 10).toFixed(2) +' USD'
-document.getElementById('priceThree').innerHTML = (price * 25).toFixed(2) +' USD'
-document.getElementById('priceFour').innerHTML = (price * 50).toFixed(2) +' USD'
+if(!(window.location.href.indexOf('server') > 0)){
+    document.getElementById('quantityInput').addEventListener("input", qunatityPrice);
+    document.getElementById('priceOne').innerHTML = (price * 1).toFixed(2) +' USD'
+    document.getElementById('priceTwo').innerHTML = (price * 10).toFixed(2) +' USD'
+    document.getElementById('priceThree').innerHTML = (price * 25).toFixed(2) +' USD'
+    document.getElementById('priceFour').innerHTML = (price * 50).toFixed(2) +' USD'
+}
 
 Array.from(document.getElementsByClassName('timeSelect')).forEach(e => {
         e.addEventListener('change', function() {
@@ -87,7 +89,7 @@ function qunatityPrice(e) {
     if(this.value <= 0) document.getElementById('priceZero').textContent = ""
 }
 
-
+if(!(window.location.href.indexOf('server') > 0)){
 document.getElementById('proxyType').addEventListener('change', function(){
     switch (this.value) {
         case 'Instagram':
@@ -125,7 +127,7 @@ document.getElementById('proxyType').addEventListener('change', function(){
     document.getElementById('priceThree').innerHTML = (price * 25).toFixed(2) +' USD'
     document.getElementById('priceFour').innerHTML = (price * 50).toFixed(2) +' USD'
 })
-
+}
 document.getElementsByClassName('logo_title')[0].addEventListener('click', () => {
     document.getElementsByClassName('content')[0].style.display = 'block'
     document.getElementById('login_page').style.display = 'none'
@@ -392,3 +394,98 @@ document.getElementById('modalSelect').addEventListener('change', function() {
         document.getElementById('visaContent').style.display = 'none'
     }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+if(window.location.href.indexOf('server') > 0){
+    const tableData = [
+        {memory: 1, core: 1, disk: 25, transfer: 1, price: 4.99, defaultPrice: 4.99},
+        {memory: 2, core: 2, disk: 50, transfer: 2, price: 9.99, defaultPrice: 9.99},
+        {memory: 3, core: 2, disk: 75, transfer: 3, price: 14.99, defaultPrice: 14.99},
+        {memory: 4, core: 3, disk: 100, transfer: 4, price: 19.99, defaultPrice: 19.99},
+        {memory: 6, core: 4, disk: 150, transfer: 5, price: 29.99, defaultPrice: 29.99},
+        {memory: 8, core: 6, disk: 200, transfer: 6, price: 39.99, defaultPrice: 39.99},
+        {memory: 16, core: 8, disk: 400, transfer: 7, price: 79.99, defaultPrice: 79.99},
+        {memory: 24, core: 10, disk: 600, transfer: 8, price: 139.99, defaultPrice: 139.99},
+        {memory: 32, core: 12, disk: 800, transfer: 9, price: 179.99, defaultPrice: 179.99},
+        {memory: 64, core: 20, disk: 1600, transfer: 10, price: 319.99, defaultPrice: 319.99},
+        {memory: 96, core: 24, disk: 2400, transfer: 11, price: 499.99, defaultPrice: 499.99},
+        {memory: 192, core: 32, disk: 4800, transfer: 12, price: 899.99, defaultPrice: 899.99},
+    ]
+
+    let table =  document.getElementById('server-table')
+    
+    function tableRender () {
+        tableData.forEach((element,index) => {
+            let row = table.insertRow(index+1);
+            let cell0 = row.insertCell(0)
+            let cell1 = row.insertCell(1)
+            let cell2 = row.insertCell(2)
+            let cell3 = row.insertCell(3)
+            let cell4 = row.insertCell(4)
+            let cell5 = row.insertCell(5)
+
+            if(index%2 == 0 ) row.style.backgroundColor = 'rgb(243, 243, 243)'
+      
+            cell0.innerHTML = element.memory + ' GB'
+            cell1.innerHTML = element.core + ' Core'
+            cell2.innerHTML = element.disk + ' Disk'
+            cell3.innerHTML = element.transfer + ' Transfer'
+            cell4.innerHTML = `$${element.price}`
+            cell5.innerHTML = `<span id="buy${index}" class="table-buy_span">BUY</span>`
+
+            document.getElementById(`buy${index}`).addEventListener('click', e => {
+                if(JSON.parse(localStorage.getItem('user'))){
+                    modal.style.display = "block";
+                    let email = JSON.parse(localStorage.getItem('user')).email  
+                    document.getElementById('oriderInfo').textContent = `${email?email:''}`
+                    document.getElementById('btc').textContent = `${(element.price * 0.000055*1000).toFixed(2)} mBTC`
+                    document.getElementById('sendWarning').textContent = `Send exactly ${(element.price * 0.000055).toFixed(6)} BTC to the specified address`
+                    document.getElementById('amount').textContent = `${(element.price * 0.000055).toFixed(6)} BTC`
+                }else {
+                    document.getElementById('username').innerHTML = ''
+                    if(localStorage.getItem('user'))localStorage.removeItem('user')
+                    document.getElementsByClassName('content')[0].style.display = 'none'
+                    document.getElementById('login_page').style.display = 'block'
+                    document.getElementById('register_page').style.display = 'none'
+                }
+              
+            })
+      
+            cell4.style.color = '#0d9b0a'
+            cell4.style.fontWeight = 'bolder'
+          })
+    }
+    tableRender()
+
+    let months = ["1 Month","2 Months","3 Months","4 Months","5 Months","6 Months"];
+
+    months.forEach(e => {
+        let option = document.createElement('option');
+        option.text = e
+        option.value = e[0]
+        document.getElementById('table-select').add(option)
+    })
+
+    document.getElementById('table-select').addEventListener('change', function() {
+        tableData.forEach(e => {
+            e.price = (e.defaultPrice * this.value).toFixed(2)           
+        })
+
+        for(let i=tableData.length;i>=1; i--){
+            table.deleteRow(i)
+        }
+        tableRender()
+    })
+
+}

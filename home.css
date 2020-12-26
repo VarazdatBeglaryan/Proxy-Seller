@@ -164,11 +164,6 @@ select#xyz {
     border:0px;
     outline:0px;
  }
-
-.logo_title:hover {
-    cursor: pointer
-}
-
 .login_form {
     width: 80%;
     margin: 0 auto;
@@ -470,4 +465,103 @@ img {
 #visaContent {
     font-size: 21px;
     margin: 20px 0;
+}
+
+
+
+
+
+
+
+.header{
+    width: 50%;
+    margin: auto;
+    margin-top: 100px;
+    text-align: center;
+    font-family: monospace
+}
+
+.header h1 {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 3rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    color: #f35626;
+    background-image: -webkit-linear-gradient(92deg, #8cf888, #00ff80);
+    -webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-animation: hue 10s infinite linear;
+}
+.header-info {
+    width: 80%;
+    margin: auto;
+    letter-spacing: 1px;
+    line-height: 26px;
+    font-size: 0.8rem;
+}
+
+.table-info {
+    font-size: 1.4rem;
+    margin-top: 72px;
+}
+
+@-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(-360deg);
+    }
+  }
+
+
+#server-table{
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    border-collapse: collapse;
+    font-family: monospace;
+    margin-bottom: 100px
+}
+
+#server-table tr { 
+    border: solid #35be70;
+    border-width: 1px 0;
+    padding: 20px;
+}
+
+#server-table td {
+    padding: 20px;
+}
+
+#server-table td + td {
+    border-left: 0.5px solid #35be70
+}
+
+.table-buy_span {
+    margin-right: -42px;
+    color: rgb(13, 155, 10);
+    border: 1px solid rgb(13, 155, 10);
+    padding: 10px 30px;
+    transition: 0.5s
+}
+
+.table-buy_span:hover {
+    cursor: pointer;
+    background-color: rgb(13, 155, 10);
+    color: white;
+}
+
+#table-select{
+    font-size: 15px;
+    border: none;
+    color: rgb(13, 155, 10);
+}
+#table-select option {
+    font-size: 15px;
+}
+
+#table-select:hover{
+    cursor: pointer;
 }
