@@ -407,7 +407,7 @@ document.getElementById('modalSelect').addEventListener('change', function() {
 
 
 
-if(window.location.href.indexOf('server') > 0){
+if(window.location.href.indexOf('/server') > 0){
     const tableData = [
         {memory: 1, core: 1, disk: 25, transfer: 1, price: 4.99, defaultPrice: 4.99},
         {memory: 2, core: 2, disk: 50, transfer: 2, price: 9.99, defaultPrice: 9.99},
@@ -435,7 +435,7 @@ if(window.location.href.indexOf('server') > 0){
             let cell4 = row.insertCell(4)
             let cell5 = row.insertCell(5)
 
-            if(index%2 == 0 ) row.style.backgroundColor = 'rgb(243, 243, 243)'
+            if(index%2 == 0 ) row.style.backgroundColor = 'rgb(239 246 253)'
       
             cell0.innerHTML = element.memory + ' GB'
             cell1.innerHTML = element.core + ' Core'
