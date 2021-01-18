@@ -72,6 +72,7 @@ transition: all 0.5s;
     border: 1px solid #35be70;
 }
 #quantityInput {
+    background-color: #fff !important;
     border: 1px solid #35be70;
     padding: 6px;
 }
