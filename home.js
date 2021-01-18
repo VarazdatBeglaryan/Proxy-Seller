@@ -407,7 +407,7 @@ document.getElementById('modalSelect').addEventListener('change', function() {
 
 
 
-if(window.location.href.indexOf('server') > 0){
+if(window.location.href.indexOf('/server') > 0){
     const tableData = [
         {memory: 1, core: 1, disk: 25, transfer: 1, price: 4.99, defaultPrice: 4.99},
         {memory: 2, core: 2, disk: 50, transfer: 2, price: 9.99, defaultPrice: 9.99},
