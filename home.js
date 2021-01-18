@@ -43,7 +43,7 @@ var firebaseConfig = {
       })
   }
 
-if(!(window.location.href.indexOf('server') > 0)){
+if(!(window.location.href.indexOf('/server') > 0)){
     document.getElementById('quantityInput').addEventListener("input", qunatityPrice);
     document.getElementById('priceOne').innerHTML = (price * 1).toFixed(2) +' USD'
     document.getElementById('priceTwo').innerHTML = (price * 10).toFixed(2) +' USD'
@@ -89,7 +89,7 @@ function qunatityPrice(e) {
     if(this.value <= 0) document.getElementById('priceZero').textContent = ""
 }
 
-if(!(window.location.href.indexOf('server') > 0)){
+if(!(window.location.href.indexOf('/server') > 0)){
 document.getElementById('proxyType').addEventListener('change', function(){
     switch (this.value) {
         case 'Instagram':
