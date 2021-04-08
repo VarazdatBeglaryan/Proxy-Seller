@@ -409,18 +409,18 @@ document.getElementById('modalSelect').addEventListener('change', function() {
 
 if(window.location.href.indexOf('/server') > 0){
     const tableData = [
-        {memory: 1, core: 1, disk: 25, transfer: 1, price: 4.99, defaultPrice: 4.99},
-        {memory: 2, core: 2, disk: 50, transfer: 2, price: 9.99, defaultPrice: 9.99},
-        {memory: 3, core: 2, disk: 75, transfer: 3, price: 14.99, defaultPrice: 14.99},
-        {memory: 4, core: 3, disk: 100, transfer: 4, price: 19.99, defaultPrice: 19.99},
-        {memory: 6, core: 4, disk: 150, transfer: 5, price: 29.99, defaultPrice: 29.99},
-        {memory: 8, core: 6, disk: 200, transfer: 6, price: 39.99, defaultPrice: 39.99},
-        {memory: 16, core: 8, disk: 400, transfer: 7, price: 79.99, defaultPrice: 79.99},
-        {memory: 24, core: 10, disk: 600, transfer: 8, price: 139.99, defaultPrice: 139.99},
-        {memory: 32, core: 12, disk: 800, transfer: 9, price: 179.99, defaultPrice: 179.99},
-        {memory: 64, core: 20, disk: 1600, transfer: 10, price: 319.99, defaultPrice: 319.99},
-        {memory: 96, core: 24, disk: 2400, transfer: 11, price: 499.99, defaultPrice: 499.99},
-        {memory: 192, core: 32, disk: 4800, transfer: 12, price: 899.99, defaultPrice: 899.99},
+        {memory: 1, core: 1, disk: 25, transfer: 1, price: 2.99, defaultPrice: 2.99},
+        {memory: 2, core: 2, disk: 50, transfer: 2, price: 6.99, defaultPrice: 6.99},
+        {memory: 3, core: 2, disk: 75, transfer: 3, price: 11.99, defaultPrice: 11.99},
+        {memory: 4, core: 3, disk: 100, transfer: 4, price: 16.99, defaultPrice: 16.99},
+        {memory: 6, core: 4, disk: 150, transfer: 5, price: 24.99, defaultPrice: 24.99},
+        {memory: 8, core: 6, disk: 200, transfer: 6, price: 32.99, defaultPrice: 32.99},
+        {memory: 16, core: 8, disk: 400, transfer: 7, price: 68.99, defaultPrice: 68.99},
+        {memory: 24, core: 10, disk: 600, transfer: 8, price: 126.99, defaultPrice: 126.99},
+        {memory: 32, core: 12, disk: 800, transfer: 9, price: 150.99, defaultPrice: 150.99},
+        {memory: 64, core: 20, disk: 1600, transfer: 10, price: 289.99, defaultPrice: 289.99},
+        {memory: 96, core: 24, disk: 2400, transfer: 11, price: 469.99, defaultPrice: 469.99},
+        {memory: 192, core: 32, disk: 4800, transfer: 12, price: 850.99, defaultPrice: 850.99},
     ]
 
     let table =  document.getElementById('server-table')
@@ -449,9 +449,9 @@ if(window.location.href.indexOf('/server') > 0){
                     modal.style.display = "block";
                     let email = JSON.parse(localStorage.getItem('user')).email  
                     document.getElementById('oriderInfo').textContent = `${email?email:''}`
-                    document.getElementById('btc').textContent = `${(element.price * 0.000055*1000).toFixed(2)} mBTC`
-                    document.getElementById('sendWarning').textContent = `Send exactly ${(element.price * 0.000055).toFixed(6)} BTC to the specified address`
-                    document.getElementById('amount').textContent = `${(element.price * 0.000055).toFixed(6)} BTC`
+                    document.getElementById('btc').textContent = `${(element.price * 0.000017*1000).toFixed(2)} mBTC`
+                    document.getElementById('sendWarning').textContent = `Send exactly ${(element.price * 0.000017).toFixed(6)} BTC to the specified address`
+                    document.getElementById('amount').textContent = `${(element.price * 0.000017).toFixed(6)} BTC`
                 }else {
                     document.getElementById('username').innerHTML = ''
                     if(localStorage.getItem('user'))localStorage.removeItem('user')
