@@ -435,7 +435,7 @@ if(window.location.href.indexOf('/server') > 0){
             let cell4 = row.insertCell(4)
             let cell5 = row.insertCell(5)
 
-            if(index%2 == 0 ) row.style.backgroundColor = 'rgb(243, 243, 243)'
+            if(index%2 == 0 ) row.style.backgroundColor = 'rgb(239 246 253)'
       
             cell0.innerHTML = element.memory + ' GB'
             cell1.innerHTML = element.core + ' Core'

@@ -72,6 +72,7 @@ transition: all 0.5s;
     border: 1px solid #35be70;
 }
 #quantityInput {
+    background-color: #fff !important;
     border: 1px solid #35be70;
     padding: 6px;
 }
@@ -106,6 +107,10 @@ transition: all 0.5s;
 select option:hover {
     outline: none
 }   
+
+#proxyType {
+    background: rgb(242, 246, 250);
+}
 
 #proxyType option{
     font-size: 20px;
@@ -337,7 +342,13 @@ img {
     width: 50%;
     position: relative;
     height: 50px;
-    overflow: hidden
+    overflow: hidden;
+    background-color: rgb(242, 246, 250);
+}
+
+#name, #email {
+    background-color: rgb(242, 246, 250);
+    color: black;
 }
 
 .form__name input,
@@ -405,13 +416,14 @@ img {
 
 
 #message {
-    color: #595f6e;
+    color: black;
     resize: none;
     width: 50%;
     height: 30vh;
     margin-top: 7vh;
     border-color: black;
     outline: none;
+    background-color: rgb(242, 246, 250);
     transition: all 0.5s linear;
 }
 
@@ -529,6 +541,7 @@ img {
     border: solid #35be70;
     border-width: 1px 0;
     padding: 20px;
+    
 }
 
 #server-table td {
@@ -564,4 +577,9 @@ img {
 
 #table-select:hover{
     cursor: pointer;
+}
+
+
+body, #table-select{
+    background-color: rgb(242, 246, 250);
 }
